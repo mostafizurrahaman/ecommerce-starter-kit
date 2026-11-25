@@ -1,0 +1,432 @@
+// ==========================================
+// E-commerce Database Design (DBML Format)
+// Paste this directly into https://dbdiagram.io
+// ==========================================
+
+// 1. Enums
+enum user_role {
+  CUSTOMER
+  ADMIN
+  STAFF
+}
+
+enum order_status {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum payment_status {
+  UNPAID
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum payment_method {
+  COD
+  SSLCOMMERZ
+}
+
+enum discount_type {
+  PERCENTAGE
+  FIXED_AMOUNT
+}
+
+// 2. Users & Authentication
+Table users {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name varchar(100) [not null]
+  email varchar(150) [unique]
+  phone varchar(20) [unique]
+  password_hash varchar(255)
+  role user_role [not null, default: 'CUSTOMER']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    email
+    phone
+  }
+}
+
+// 3. Nested Categories (3-Level Tree: Root -> Sub-category -> Child Category)
+Table categories {
+  id uuid [pk, default: `gen_random_uuid()`]
+  parent_id uuid [note: 'Self-reference to categories.id. Null for Root (Level 1)']
+  level int [not null, default: 1, note: '1 = Root, 2 = Sub-category, 3 = Child Category. Constrained to max 3']
+  name varchar(100) [not null]
+  slug varchar(120) [unique, not null]
+  description text
+  display_order int [not null, default: 0]
+  
+  // SEO Fields
+  meta_title varchar(160)
+  meta_description text
+  og_image_url text
+  
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    parent_id
+    slug
+  }
+}
+
+// 4. Products & Catalogs
+Table products {
+  id uuid [pk, default: `gen_random_uuid()`]
+  primary_category_id uuid [not null, note: 'Primary category for canonical URL & breadcrumbs']
+  title varchar(255) [not null]
+  slug varchar(280) [unique, not null]
+  description text
+  is_featured boolean [not null, default: false]
+  is_active boolean [not null, default: true]
+
+  // SEO Fields
+  meta_title varchar(160)
+  meta_description text
+  meta_keywords text
+  og_image_url text
+  canonical_url text
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    primary_category_id
+    slug
+    is_featured
+  }
+}
+
+// Product <-> Category Junction (Allows 1 Product in Multiple Categories e.g. Unisex Bags)
+Table product_categories {
+  product_id uuid [not null]
+  category_id uuid [not null]
+  is_primary boolean [not null, default: false]
+
+  indexes {
+    (product_id, category_id) [pk]
+    category_id
+  }
+}
+
+// 5. Dynamic Attributes (Colors, Sizes: Apparel & Footwear)
+Table attributes {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name varchar(50) [unique, not null, note: 'e.g. Color, Clothing Size, Shoe Size, Material']
+}
+
+Table attribute_values {
+  id uuid [pk, default: `gen_random_uuid()`]
+  attribute_id uuid [not null]
+  value varchar(50) [not null, note: 'e.g. Red, Black, XL, EU 42, US 9']
+
+  indexes {
+    (attribute_id, value) [unique]
+  }
+}
+
+// 6. Product Variants & Atomic Inventory
+Table product_variants {
+  id uuid [pk, default: `gen_random_uuid()`]
+  product_id uuid [not null]
+  sku varchar(100) [unique, not null]
+  price numeric(12, 2) [not null, note: 'Must be >= 0']
+  compare_at_price numeric(12, 2)
+  stock_quantity int [not null, default: 0, note: 'Check constraint: >= 0']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    product_id
+    sku
+  }
+}
+
+// Variant <-> Attribute Value Junction (Many-to-Many)
+Table variant_attribute_values {
+  variant_id uuid [not null]
+  attribute_value_id uuid [not null]
+
+  indexes {
+    (variant_id, attribute_value_id) [pk]
+  }
+}
+
+// 7. Product & Variant Images
+Table product_images {
+  id uuid [pk, default: `gen_random_uuid()`]
+  product_id uuid [not null]
+  variant_id uuid [note: 'Null for common images, set for color/variant-specific images']
+  image_url text [not null]
+  alt_text varchar(255) [not null, note: 'Crucial for Image SEO and Google indexing']
+  is_primary boolean [not null, default: false]
+  display_order int [not null, default: 0]
+
+  indexes {
+    product_id
+    variant_id
+  }
+}
+
+// 8. Flash Sales & Promotional Banners
+Table flash_sales {
+  id uuid [pk, default: `gen_random_uuid()`]
+  title varchar(150) [not null]
+  slug varchar(180) [unique, not null]
+  starts_at timestamptz [not null]
+  ends_at timestamptz [not null]
+  is_active boolean [not null, default: true]
+
+  // SEO Fields
+  meta_title varchar(160)
+  meta_description text
+  og_image_url text
+
+  indexes {
+    slug
+    (starts_at, ends_at)
+  }
+}
+
+Table flash_sale_items {
+  id uuid [pk, default: `gen_random_uuid()`]
+  flash_sale_id uuid [not null]
+  variant_id uuid [not null]
+  discount_price numeric(12, 2) [not null]
+  quantity_limit int [not null]
+  sold_quantity int [not null, default: 0]
+
+  indexes {
+    (flash_sale_id, variant_id) [unique]
+  }
+}
+
+Table banners {
+  id uuid [pk, default: `gen_random_uuid()`]
+  title varchar(150) [not null]
+  image_url text [not null]
+  link_url text
+  placement varchar(50) [not null, note: 'HERO, MIDDLE, POPUP']
+  starts_at timestamptz
+  ends_at timestamptz
+  is_active boolean [not null, default: true]
+}
+
+// 9. Carts (Authenticated & Guest)
+Table carts {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [note: 'Null for guest session']
+  session_token varchar(100) [unique, note: 'Cookie-based token for guest']
+  coupon_id uuid [note: 'Applied promo code']
+  discount_amount numeric(12, 2) [not null, default: 0]
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    user_id
+    session_token
+  }
+}
+
+Table cart_items {
+  id uuid [pk, default: `gen_random_uuid()`]
+  cart_id uuid [not null]
+  variant_id uuid [not null]
+  quantity int [not null, default: 1]
+
+  indexes {
+    (cart_id, variant_id) [unique]
+  }
+}
+
+// 10. Coupons & Promo Codes
+Table coupons {
+  id uuid [pk, default: `gen_random_uuid()`]
+  code varchar(50) [unique, not null, note: 'e.g. EID50, WELCOME10']
+  discount_type discount_type [not null, note: 'PERCENTAGE or FIXED_AMOUNT']
+  discount_value numeric(12, 2) [not null, note: 'e.g. 10 (%) or 200 (BDT)']
+  max_discount_amount numeric(12, 2) [note: 'Max cap for percentage discount e.g. 500 BDT']
+  min_order_amount numeric(12, 2) [not null, default: 0, note: 'Minimum spend required']
+  starts_at timestamptz [not null]
+  expires_at timestamptz [not null]
+  usage_limit int [note: 'Total usage allowed across entire store. Null for unlimited']
+  used_count int [not null, default: 0]
+  per_user_limit int [not null, default: 1, note: 'Max usage allowed per customer']
+  is_active boolean [not null, default: true]
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    code
+    (starts_at, expires_at)
+    is_active
+  }
+}
+
+Table coupon_usages {
+  id uuid [pk, default: `gen_random_uuid()`]
+  coupon_id uuid [not null]
+  user_id uuid [note: 'Null for guest usage']
+  order_id uuid [not null]
+  guest_phone varchar(20) [note: 'Track phone number to prevent guest coupon abuse']
+  discount_amount numeric(12, 2) [not null]
+  used_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    coupon_id
+    user_id
+    guest_phone
+    order_id
+  }
+}
+
+// 11. Orders (Guest & Registered Checkout)
+Table orders {
+  id uuid [pk, default: `gen_random_uuid()`]
+  order_number varchar(50) [unique, not null]
+  user_id uuid [note: 'Null for guest purchase']
+  coupon_id uuid [note: 'Referenced promo code if applied']
+  customer_name varchar(100) [not null]
+  customer_email varchar(150)
+  customer_phone varchar(20) [not null]
+  shipping_address text [not null]
+  subtotal numeric(12, 2) [not null]
+  discount_amount numeric(12, 2) [not null, default: 0, note: 'Amount deducted by promo code']
+  delivery_charge numeric(8, 2) [not null, default: 0]
+  total_amount numeric(12, 2) [not null, note: 'subtotal - discount_amount + delivery_charge']
+  payment_method payment_method [not null]
+  payment_status payment_status [not null, default: 'UNPAID']
+  order_status order_status [not null, default: 'PENDING']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    order_number
+    customer_phone
+    user_id
+    order_status
+    created_at
+  }
+}
+
+// 11. Immutable Order Items (Historical Snapshot)
+Table order_items {
+  id uuid [pk, default: `gen_random_uuid()`]
+  order_id uuid [not null]
+  variant_id uuid [note: 'Nullable in case variant is deleted later']
+  product_title varchar(255) [not null]
+  variant_sku varchar(100) [not null]
+  attribute_summary text [not null, note: 'e.g. Color: Red, Size: EU 42']
+  unit_price numeric(12, 2) [not null]
+  quantity int [not null]
+  line_total numeric(12, 2) [not null]
+
+  indexes {
+    order_id
+    variant_id
+  }
+}
+
+// 12. Payment Transactions (SSLCommerz / COD)
+Table payments {
+  id uuid [pk, default: `gen_random_uuid()`]
+  order_id uuid [not null]
+  gateway varchar(50) [not null, note: 'SSLCOMMERZ, COD']
+  transaction_id varchar(100) [unique]
+  val_id varchar(100) [note: 'SSLCommerz validation ID']
+  amount numeric(12, 2) [not null]
+  currency varchar(10) [not null, default: 'BDT']
+  status payment_status [not null, default: 'UNPAID']
+  gateway_response jsonb [note: 'Full raw webhook/IPN response']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    order_id
+    transaction_id
+  }
+}
+
+// 13. Order Notifications
+Table order_notifications {
+  id uuid [pk, default: `gen_random_uuid()`]
+  order_id uuid [not null]
+  channel varchar(20) [not null, note: 'SMS, EMAIL']
+  recipient varchar(150) [not null]
+  message_content text [not null]
+  is_sent boolean [not null, default: false]
+  sent_at timestamptz
+  error_message text
+
+  indexes {
+    order_id
+    is_sent
+  }
+}
+
+// 14. Audit Logs (Admin Actions Tracking)
+Table audit_logs {
+  id uuid [pk, default: `gen_random_uuid()`]
+  actor_id uuid [note: 'References users.id (admin)']
+  action varchar(80) [not null, note: 'UPDATE_STOCK, CHANGE_STATUS']
+  entity_type varchar(50) [not null, note: 'orders, product_variants']
+  entity_id uuid [not null]
+  old_data jsonb
+  new_data jsonb
+  ip_address varchar(45)
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    actor_id
+    entity_type
+    entity_id
+    created_at
+  }
+}
+
+// 15. Site Settings (Theme Colors & Global Config)
+Table site_settings {
+  key varchar(80) [pk, note: 'e.g. theme_colors, site_meta']
+  value jsonb [not null, note: '{"primary": "#0052cc", "secondary": "#ff5630"}']
+  updated_at timestamptz [not null, default: `now()`]
+}
+
+// ==========================================
+// Relationships & Foreign Keys
+// ==========================================
+Ref: categories.parent_id > categories.id [delete: set null]
+Ref: products.primary_category_id > categories.id [delete: restrict]
+Ref: product_categories.product_id > products.id [delete: cascade]
+Ref: product_categories.category_id > categories.id [delete: cascade]
+
+Ref: attribute_values.attribute_id > attributes.id [delete: cascade]
+
+Ref: product_variants.product_id > products.id [delete: cascade]
+Ref: variant_attribute_values.variant_id > product_variants.id [delete: cascade]
+Ref: variant_attribute_values.attribute_value_id > attribute_values.id [delete: restrict]
+
+Ref: product_images.product_id > products.id [delete: cascade]
+Ref: product_images.variant_id > product_variants.id [delete: set null]
+
+Ref: flash_sale_items.flash_sale_id > flash_sales.id [delete: cascade]
+Ref: flash_sale_items.variant_id > product_variants.id [delete: cascade]
+
+Ref: carts.user_id > users.id [delete: cascade]
+Ref: carts.coupon_id > coupons.id [delete: set null]
+Ref: cart_items.cart_id > carts.id [delete: cascade]
+Ref: cart_items.variant_id > product_variants.id [delete: cascade]
+
+Ref: orders.user_id > users.id [delete: set null]
+Ref: orders.coupon_id > coupons.id [delete: set null]
+Ref: coupon_usages.coupon_id > coupons.id [delete: cascade]
+Ref: coupon_usages.user_id > users.id [delete: set null]
+Ref: coupon_usages.order_id > orders.id [delete: cascade]
+Ref: order_items.order_id > orders.id [delete: cascade]
+Ref: order_items.variant_id > product_variants.id [delete: set null]
+
+Ref: payments.order_id > orders.id [delete: restrict]
+Ref: order_notifications.order_id > orders.id [delete: cascade]
+Ref: audit_logs.actor_id > users.id [delete: set null]

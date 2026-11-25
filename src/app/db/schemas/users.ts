@@ -40,7 +40,7 @@ export const users = pgTable(
     status: UserStatus("status").default("pending").notNull(),
     is_otp_verified: boolean("is_otp_verified").default(false).notNull(),
     is_two_factor_enabled: boolean("is_two_factor_enabled")
-      .default(false)  
+      .default(false)
       .notNull(),
 
     // blocked reason
