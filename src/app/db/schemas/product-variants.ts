@@ -14,7 +14,7 @@ import { products } from "./products";
 import { timestamps } from "./timestamps";
 import { eq, sql } from "drizzle-orm";
 
-const productVariants = pgTable(
+export const productVariants = pgTable(
   "product_variants",
   {
     id: uuid("variant_id").defaultRandom().primaryKey(),
