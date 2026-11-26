@@ -53,7 +53,7 @@ export const products = pgTable(
     original_price: numeric("compare_at_price", {
       precision: 12,
       scale: 2,
-    }).notNull(),
+    }),
 
     // Has  variants:
     has_variants: boolean("has_variants").default(false).notNull(),
