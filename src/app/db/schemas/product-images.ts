@@ -10,7 +10,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { products } from "./products";
-import { productVariants } from "./product-variants";
+import { variants } from "./variants";
 import { timestamps } from "./timestamps";
 
 export const productImages = pgTable(
@@ -22,7 +22,7 @@ export const productImages = pgTable(
       .notNull()
       .references(() => products.id, { onDelete: "cascade" }),
 
-    variant_id: uuid("variant_id").references(() => productVariants.id, {
+    variant_id: uuid("variant_id").references(() => variants.id, {
       onDelete: "set null",
     }),
 

@@ -16,15 +16,13 @@ export const mediaUploads = pgTable(
   "media_uploads",
   {
     id: uuid("media_id").defaultRandom().primaryKey(),
-    uploaded_by: uuid("uploaded_by")
-      .notNull()
-      .references(() => users.id, {
-        onDelete: "set null",
-      }),
+    uploaded_by: uuid("uploaded_by").references(() => users.id, {
+      onDelete: "set null",
+    }),
     product_id: uuid("product_id")
       .notNull()
       .references(() => products.id, {
-        onDelete: "set null",
+        onDelete: "cascade",
       }),
     url: text("url").notNull(),
     public_id: varchar("public_id").notNull(),

@@ -8,7 +8,7 @@ import {
 } from "drizzle-orm/pg-core";
 
 export const banners = pgTable("banners", {
-  id: uuid("banner_id").defaultRandom().notNull(),
+  id: uuid("banner_id").defaultRandom().primaryKey(),
   title: varchar("title", { length: 255 }).notNull(),
   image_url: text("image_url").notNull(),
   starts_at: timestamp("starts_at", {

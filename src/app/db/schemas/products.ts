@@ -15,6 +15,7 @@ import { users } from "./users";
 import { brands } from "./brand";
 import { meta_fields } from "./meta_fields";
 import { timestamps } from "./timestamps";
+import { categories } from "./categories";
 
 export const productStatusEnum = pgEnum("product_status", [
   "draft",
@@ -37,6 +38,11 @@ export const products = pgTable(
     slug: varchar("slug", { length: 280 }).unique().notNull(),
     short_description: varchar("short_description", { length: 500 }),
     description: text("description"),
+    category_id: uuid("category_id")
+      .notNull()
+      .references(() => categories.id, {
+        onDelete: "restrict",
+      }),
     brand_id: uuid("brand_id").references(() => brands.id, {
       onDelete: "set null",
     }),

@@ -1,6 +1,7 @@
 import { index, numeric, pgTable, uuid, varchar } from "drizzle-orm/pg-core";
 import { users } from "./users";
 import { timestamps } from "./timestamps";
+import { coupons } from "./coupons";
 
 export const carts = pgTable(
   "carts",
@@ -10,8 +11,15 @@ export const carts = pgTable(
       onDelete: "cascade",
     }),
     session_token: varchar("session_token", { length: 255 }),
-    coupon_id: uuid("coupon_id"),
-    discount_amount: numeric("discount_amount").notNull().default("0"),
+    coupon_id: uuid("coupon_id").references(() => coupons.id, {
+      onDelete: "set null",
+    }),
+    discount_amount: numeric("discount_amount", {
+      precision: 12,
+      scale: 2,
+    })
+      .notNull()
+      .default("0"),
     ...timestamps,
   },
   (table) => [

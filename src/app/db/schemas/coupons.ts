@@ -21,7 +21,8 @@ export const coupons = pgTable(
   {
     id: uuid("coupon_id").defaultRandom().primaryKey(),
 
-    code: varchar("code", { length: 50 }).notNull(),
+    code: varchar("code", { length: 50 }).unique().notNull(),
+    discount_value: numeric({ precision: 12, scale: 2 }).notNull(),
 
     discount_type: discountTypeEnum("discount_type").notNull(),
 

@@ -14,8 +14,8 @@ import { products } from "./products";
 import { timestamps } from "./timestamps";
 import { eq, sql } from "drizzle-orm";
 
-export const productVariants = pgTable(
-  "product_variants",
+export const variants = pgTable(
+  "variants",
   {
     id: uuid("variant_id").defaultRandom().primaryKey(),
     product_id: uuid("product_id")
@@ -54,7 +54,7 @@ export const productVariants = pgTable(
   },
   (table) => [
     index("variant_product_id_index").on(table.product_id),
-    index("variant_is_active_index").on(table.product_id),
+    index("variant_is_active_index").on(table.is_active),
     uniqueIndex("variant_one_default_per_product_idx")
       .on(table.product_id)
       .where(eq(table.is_default, true)),

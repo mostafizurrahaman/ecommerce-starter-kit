@@ -12,7 +12,7 @@ export const SettingTypeEnum = pgEnum("setting_type", [
 
 export const siteSettings = pgTable("site_settings", {
   id: uuid("setting_id").defaultRandom().primaryKey(),
-  key: SettingTypeEnum("key").notNull(),
+  key: SettingTypeEnum("key").unique().notNull(),
   value: jsonb("value"),
   ...timestamps,
 });

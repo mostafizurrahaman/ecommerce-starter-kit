@@ -11,6 +11,7 @@ import {
 import { users } from "./users";
 import { coupons } from "./coupons";
 import { timestamps } from "./timestamps";
+import { addresses } from "./addresses";
 
 // 1. Order Status:
 export const orderStatusEnum = pgEnum("order_status", [
@@ -43,11 +44,14 @@ export const paymentStatusEnum = pgEnum("payment_status", [
 
 export const orders = pgTable("orders", {
   id: uuid("order_id").defaultRandom().primaryKey(),
-  order_number: varchar("order_number").notNull(),
+  order_number: varchar("order_number").unique().notNull(),
   user_id: uuid("user_id").references(() => users.id, {
     onDelete: "set null",
   }),
-  coupon_id: uuid("coupon_idd").references(() => coupons.id, {
+  coupon_id: uuid("coupon_id").references(() => coupons.id, {
+    onDelete: "set null",
+  }),
+  address_id: uuid("address_id").references(() => addresses.id, {
     onDelete: "set null",
   }),
   customer_name: varchar("customer_name", { length: 255 }),
@@ -73,7 +77,7 @@ export const orders = pgTable("orders", {
   total_amount: numeric("total_amount", {
     precision: 12,
     scale: 2,
-  }),
+  }).notNull(),
   order_status: orderStatusEnum("order_status").default("pending").notNull(),
   payment_method: paymentMethodEnum("payment_method").notNull(),
   payment_status: paymentStatusEnum("payment_status")

@@ -2,7 +2,7 @@ import { index, pgTable, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { attribute_values } from "./attribute_values";
 
 import { timestamps } from "./timestamps";
-import { productVariants } from "./product-variants";
+import { variants } from "./variants";
 
 export const variantAttributeValues = pgTable(
   "variant_attribute_values",
@@ -11,7 +11,7 @@ export const variantAttributeValues = pgTable(
 
     variant_id: uuid("variant_id")
       .notNull()
-      .references(() => productVariants.id, { onDelete: "cascade" }),
+      .references(() => variants.id, { onDelete: "cascade" }),
 
     attribute_value_id: uuid("attribute_value_id")
       .notNull()

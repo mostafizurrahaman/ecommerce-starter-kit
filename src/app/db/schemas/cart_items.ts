@@ -1,6 +1,6 @@
 import { integer, pgTable, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { carts } from "./carts";
-import { productVariants } from "./product-variants";
+import { variants } from "./variants";
 
 export const cart_items = pgTable(
   "cart_items",
@@ -13,7 +13,7 @@ export const cart_items = pgTable(
       }),
     variant_id: uuid("variant_id")
       .notNull()
-      .references(() => productVariants.id, {
+      .references(() => variants.id, {
         onDelete: "cascade",
       }),
     quantity: integer("quantity").notNull().default(1),

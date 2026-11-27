@@ -8,6 +8,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { coupons } from "./coupons";
 import { users } from "./users";
+import { orders } from "./orders";
 
 export const couponUsages = pgTable(
   "coupon_usages",
@@ -23,7 +24,7 @@ export const couponUsages = pgTable(
     }),
     order_id: uuid("order_id")
       .notNull()
-      .references(() => users.id, {
+      .references(() => orders.id, {
         onDelete: "cascade",
       }),
     guest_phone: varchar("guest_phone", { length: 20 }),
@@ -34,11 +35,13 @@ export const couponUsages = pgTable(
     used_at: timestamp("used_at", {
       withTimezone: true,
       mode: "date",
-    }),
+    })
+      .defaultNow()
+      .notNull(),
   },
   (table) => [
     index("coupon_usages_coupon_id_idx").on(table.coupon_id),
-    index("coupon_usages_user_id_idx").on(table.coupon_id),
+    index("coupon_usages_user_id_idx").on(table.user_id),
     index("coupon_usages_guest_phone_idx").on(table.guest_phone),
     index("coupon_usages_order_id_idx").on(table.order_id),
   ],
