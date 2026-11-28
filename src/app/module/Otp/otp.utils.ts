@@ -3,7 +3,12 @@ import { configs } from "@/app/configs";
 import moment from "moment";
 import { BadRequest } from "@/app/errors";
 import { db } from "@/app/db";
-import { otps, type TOtpInsertType, type TOtpType } from "@/app/db/schemas";
+import {
+  otps,
+  type TOtpGetType,
+  type TOtpInsertType,
+  type TOtpType,
+} from "@/app/db/schemas";
 import { eq } from "drizzle-orm";
 import type { TTransaction } from "@/app/interfaces";
 
@@ -12,7 +17,7 @@ export const createOrReplaceOTP = async (
   user_id: string,
   type: TOtpType,
   tx?: TTransaction,
-): Promise<string> => {
+) => {
   const database = tx ?? db;
 
   // ?? Generate OTP:
@@ -56,7 +61,7 @@ export const createOrReplaceOTP = async (
     throw new BadRequest("Failed to generate otp.");
   }
 
-  return otp;
+  return { otp, ...result };
 };
 
 // ?? Check OTP resend cooldown:

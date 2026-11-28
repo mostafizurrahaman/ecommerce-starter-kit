@@ -32,7 +32,7 @@ router.post(
 router.post(
   "/login",
   validateRequest(authValidations.loginSchema),
-  authControllers.login,
+  authControllers.customerLogin,
 );
 
 router.post(

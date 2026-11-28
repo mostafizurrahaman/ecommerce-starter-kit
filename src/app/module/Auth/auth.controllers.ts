@@ -8,6 +8,7 @@ import {
 } from "@/app/utils";
 import type { TMulterFile } from "@/app/interfaces/multer.types";
 import { authServices } from "./auth.services";
+import { getUserFromRequest } from "./../../utils/get-user-from-req";
 
 const createUser = catchAsync(async (req, res) => {
   const profileImage = req.file as TMulterFile;
@@ -16,7 +17,7 @@ const createUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     message: result?.message,
-    data: result,
+    data: result.data,
   });
 });
 
@@ -40,8 +41,8 @@ const verifySignupOTP = catchAsync(async (req, res) => {
   });
 });
 
-const login = catchAsync(async (req, res) => {
-  const result = await authServices.login(req.body);
+const customerLogin = catchAsync(async (req, res) => {
+  const result = await authServices.customerLogin(req.body);
 
   setCookie(res, "refreshToken", result.refreshToken, {
     httpOnly: true,
@@ -86,22 +87,22 @@ const resetPassword = catchAsync(async (req, res) => {
   });
 });
 
-// const changePassword = catchAsync(async (req, res) => {
-//    const user = await getUserFromRequest(req);
-//    const result = await authServices.changePassword(user, req.body);
+const changePassword = catchAsync(async (req, res) => {
+  const user = await getUserFromRequest(req);
+  const result = await authServices.changePassword(user, req.body);
 
-//    setCookie(res, "refreshToken", result.refreshToken, {
-//       httpOnly: true,
-//       secure: false,
-//       sameSite: "none",
-//    });
+  setCookie(res, "refreshToken", result.refreshToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "none",
+  });
 
-//    sendResponse(res, {
-//       statusCode: httpStatus.OK,
-//       message: "Password has been updated.",
-//       data: result,
-//    });
-// });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    message: "Password has been updated.",
+    data: result,
+  });
+});
 
 const refreshToken = catchAsync(async (req, res) => {
   const refreshToken = req?.cookies?.refreshToken || req?.body?.refreshToken;
@@ -128,12 +129,12 @@ export const authControllers = {
   verifySignupOTP,
 
   // Sign In:
-  login,
+  customerLogin,
 
   // Reset password
   forgotPassword,
   verifyResetPasswordOTP,
   resetPassword,
-  // changePassword,
+  changePassword,
   refreshToken,
 };

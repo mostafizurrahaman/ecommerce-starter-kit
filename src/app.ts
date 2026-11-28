@@ -7,7 +7,7 @@ import { getRateLimiter } from "@/app/libs";
 import globalErrorHandler from "@/app/middlewares/global-error-handler";
 import { notFound } from "@/app/middlewares";
 // import { allRoutes } from "@/app/routes";
-import { allRoutes } from "./app/routes/index";
+import { allRoutes } from "./app/routes";
 
 /**
  * ====================

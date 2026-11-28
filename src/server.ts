@@ -1,14 +1,8 @@
 import { Server } from "http";
 
-import app from "@/app";
-import dns from "node:dns/promises";
 import { configs } from "@/app/configs";
 import { logger } from "@/app/utils";
-import { connectDB } from "@/app/utils/connect-db";
-// import { sendSuperAdmin } from "./app/seeds";
-// import { schedularUtils } from "./app/modules/Schedular/scheduler.utils";
-
-// dns.setServers(["1.1.1.1"]);
+import app from "./app";
 
 let server: Server;
 //  bootstrap function :

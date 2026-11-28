@@ -1,10 +1,16 @@
 import httpStatus from "http-status";
 
-import { catchAsync, verifyToken } from "@/app/utils";
+import {
+  catchAsync,
+  isJwtIssuedBeforePasswordChanged,
+  verifyToken,
+} from "@/app/utils";
 import { AppError, ForbiddenError, UnauthorizedError } from "@/app/errors";
 import { configs } from "@/app/configs";
-import type { TUserRole } from "../db/schemas";
+import type { TInsertUser, TUserRole } from "../db/schemas";
 import { db } from "../db";
+import { users } from "./../db/schemas/users";
+import { eq } from "drizzle-orm";
 
 export const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req, res, next) => {
@@ -57,35 +63,35 @@ export const auth = (...requiredRoles: TUserRole[]) => {
       throw new AppError(httpStatus.FORBIDDEN, "Please verify your account");
     }
 
-    if (user.status !== "pending") {
+    if (user.status !== "active") {
       throw new AppError(httpStatus.FORBIDDEN, "Your account is not active");
     }
 
     /**
      * 5. Token invalidation check
      */
-    // if (
-    //    user.passwordChangedAt &&
-    //    (await User.isJwtIssuedBeforePasswordChanged(
-    //       user.passwordChangedAt,
-    //       decoded.iat as number,
-    //    ))
-    // ) {
-    //    throw new AppError(
-    //       httpStatus.UNAUTHORIZED,
-    //       "Token has expired. Please log in again",
-    //    );
-    // }
+    if (
+      user.password_changed_at &&
+      isJwtIssuedBeforePasswordChanged(
+        user.password_changed_at,
+        decoded.iat as number,
+      )
+    ) {
+      throw new AppError(
+        httpStatus.UNAUTHORIZED,
+        "Token has expired. Please log in again",
+      );
+    }
 
     /**
      * 6. Role-based access control (RBAC)
      */
-    // if (requiredRoles.length && !requiredRoles.includes(user.role)) {
-    //    throw new AppError(
-    //       httpStatus.FORBIDDEN,
-    //       "You do not have permission to access this resource",
-    //    );
-    // }
+    if (requiredRoles.length && !requiredRoles.includes(user.role)) {
+      throw new AppError(
+        httpStatus.FORBIDDEN,
+        "You do not have permission to access this resource",
+      );
+    }
 
     /**
      * 7. Attach user to request
@@ -93,12 +99,14 @@ export const auth = (...requiredRoles: TUserRole[]) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (req as any).user = decoded;
 
-    // if (req.path.includes("login")) {
-    // user.lastLogin = new Date();
-    // }
-    // user.lastActivity = new Date();
+    const userActivity: Partial<TInsertUser> = {};
 
-    await user.save();
+    if (req.path.includes("login")) {
+      userActivity.last_login = new Date();
+    }
+    userActivity.last_activity = new Date();
+
+    await db.update(users).set(userActivity).where(eq(users.id, user.id));
 
     next();
   });

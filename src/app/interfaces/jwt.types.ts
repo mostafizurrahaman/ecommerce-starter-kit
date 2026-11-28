@@ -1,11 +1,12 @@
 import type { JwtPayload } from "jsonwebtoken";
-import type { TUserRole, TUserStatus } from "@/app/modules/User";
+import type { TUserRole, TUserStatus } from "../db/schemas";
 
 export interface IJwtUserPayload extends JwtPayload {
-  _id: string;
+  id: string;
   name: string;
   email: string;
+  phone: string;
   role: TUserRole;
-  profileImage: string;
+  profile_image: string;
   status: TUserStatus;
 }

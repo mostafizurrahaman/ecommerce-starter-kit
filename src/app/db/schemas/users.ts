@@ -9,7 +9,6 @@ import {
   index,
 } from "drizzle-orm/pg-core";
 import { timestampWithZone } from "./timestamps";
-import { TUserStatus } from "@/app/modules/User";
 
 export const UserRoleEnum = pgEnum("user_role", [
   "admin",
@@ -52,7 +51,7 @@ export const users = pgTable(
     password_changed_at: timestamp("password_changed_at", {
       withTimezone: true,
       mode: "date",
-    }),
+    }).defaultNow(),
     verified_at: timestamp("verified_at", {
       withTimezone: true,
       mode: "date",
@@ -78,5 +77,5 @@ export const users = pgTable(
 
 export type TInsertUser = typeof users.$inferInsert;
 export type TGetUser = typeof users.$inferSelect;
-export type TUserRole = [typeof UserRoleEnum.enumValues][number];
-export type TUserStatus = [typeof UserStatus.enumValues][number];
+export type TUserRole = (typeof UserRoleEnum.enumValues)[number];
+export type TUserStatus = (typeof UserStatus.enumValues)[number];

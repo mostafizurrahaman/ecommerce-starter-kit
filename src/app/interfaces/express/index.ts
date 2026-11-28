@@ -1,13 +1,12 @@
-import type { IUserDoc } from "@/app/modules/User";
-
+import type { TGetUser } from "@/app/db/schemas";
 
 declare global {
-   namespace Express {
-      interface Request {
-         user: IUserDoc;
-         validQuery: any;
-      }
-   }
+  namespace Express {
+    interface Request {
+      user: TGetUser;
+      validQuery: any;
+    }
+  }
 }
 
 export {};
