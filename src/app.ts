@@ -7,6 +7,7 @@ import { getRateLimiter } from "@/app/libs";
 import globalErrorHandler from "@/app/middlewares/global-error-handler";
 import { notFound } from "@/app/middlewares";
 // import { allRoutes } from "@/app/routes";
+import { allRoutes } from "./app/routes/index";
 
 /**
  * ====================
@@ -63,7 +64,7 @@ app.get("/api/v1", (req, res) => {
   });
 });
 
-// app.use("/api/v1", allRoutes);
+app.use("/api/v1", allRoutes);
 
 app.use(globalErrorHandler);
 

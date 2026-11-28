@@ -1,6 +1,6 @@
 export interface GenerateOtpOptions {
-  length?: number
-  numericOnly?: boolean
+  length?: number;
+  numericOnly?: boolean;
 }
 
 /**
@@ -26,15 +26,16 @@ export const generateOtp = ({
   length = 6,
   numericOnly = true,
 }: GenerateOtpOptions = {}): string => {
-  const numericChars = '0123456789'
-  const alphaNumericChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  const numericChars = "0123456789";
+  const alphaNumericChars =
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-  const chars = numericOnly ? numericChars : alphaNumericChars
+  const chars = numericOnly ? numericChars : alphaNumericChars;
 
-  let otp = ''
+  let otp = "";
   for (let i = 0; i < length; i++) {
-    otp += chars.charAt(Math.floor(Math.random() * chars.length))
+    otp += chars.charAt(Math.floor(Math.random() * chars.length));
   }
 
-  return otp
-}
+  return otp;
+};

@@ -1,9 +1,10 @@
 import httpStatus from "http-status";
-import { User } from "@/app/modules/User/user.model";
-import { UserStatus, type TUserRole } from "@/app/modules/User/user.constants";
+
 import { catchAsync, verifyToken } from "@/app/utils";
 import { AppError, ForbiddenError, UnauthorizedError } from "@/app/errors";
 import { configs } from "@/app/configs";
+import type { TUserRole } from "../db/schemas";
+import { db } from "../db";
 
 export const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req, res, next) => {
@@ -32,7 +33,11 @@ export const auth = (...requiredRoles: TUserRole[]) => {
     /**
      * 3. Fetch user
      */
-    const user = await User.findOne({ email: decoded?.email });
+    const user = await db.query.users.findFirst({
+      where: {
+        email: decoded.email,
+      },
+    });
     if (!user) {
       throw new AppError(httpStatus.NOT_FOUND, "User not found");
     }
@@ -40,19 +45,19 @@ export const auth = (...requiredRoles: TUserRole[]) => {
     /**
      * 4. Account status checks
      */
-    if (user.status === UserStatus.BLOCKED) {
+    if (user.status === "blocked") {
       throw new ForbiddenError("Your account has been blocked");
     }
 
-    if (user.status === UserStatus.DELETED) {
-      throw new AppError(httpStatus.GONE, "Your account has been deleted");
+    if (user.status === "deactivated") {
+      throw new AppError(httpStatus.GONE, "Your account has been deactivated");
     }
 
-    if (!user.isOtpVerified) {
+    if (!user.is_otp_verified) {
       throw new AppError(httpStatus.FORBIDDEN, "Please verify your account");
     }
 
-    if (user.status !== UserStatus.ACTIVE) {
+    if (user.status !== "pending") {
       throw new AppError(httpStatus.FORBIDDEN, "Your account is not active");
     }
 

@@ -1,0 +1,6807 @@
+{
+  "type": "base",
+  "version": "10",
+  "dialect": "postgres",
+  "id": "024c1a0c-2259-4b97-ba73-0f1c94cf2cbd",
+  "prevIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "user_role"
+      ],
+      "writes": [
+        "s|enum|public.user_role",
+        "n|enum|public.user_role",
+        "e|enum|public.user_role",
+        "n|type|public.user_role"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "user_status"
+      ],
+      "writes": [
+        "s|enum|public.user_status",
+        "n|enum|public.user_status",
+        "e|enum|public.user_status",
+        "n|type|public.user_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "otp_type"
+      ],
+      "writes": [
+        "s|enum|public.otp_type",
+        "n|enum|public.otp_type",
+        "e|enum|public.otp_type",
+        "n|type|public.otp_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "category_status"
+      ],
+      "writes": [
+        "s|enum|public.category_status",
+        "n|enum|public.category_status",
+        "e|enum|public.category_status",
+        "n|type|public.category_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "brand_status"
+      ],
+      "writes": [
+        "s|enum|public.brand_status",
+        "n|enum|public.brand_status",
+        "e|enum|public.brand_status",
+        "n|type|public.brand_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "display_type"
+      ],
+      "writes": [
+        "s|enum|public.display_type",
+        "n|enum|public.display_type",
+        "e|enum|public.display_type",
+        "n|type|public.display_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "product_status"
+      ],
+      "writes": [
+        "s|enum|public.product_status",
+        "n|enum|public.product_status",
+        "e|enum|public.product_status",
+        "n|type|public.product_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "media_status"
+      ],
+      "writes": [
+        "s|enum|public.media_status",
+        "n|enum|public.media_status",
+        "e|enum|public.media_status",
+        "n|type|public.media_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "discount_type"
+      ],
+      "writes": [
+        "s|enum|public.discount_type",
+        "n|enum|public.discount_type",
+        "e|enum|public.discount_type",
+        "n|type|public.discount_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "order_status"
+      ],
+      "writes": [
+        "s|enum|public.order_status",
+        "n|enum|public.order_status",
+        "e|enum|public.order_status",
+        "n|type|public.order_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "payment_method"
+      ],
+      "writes": [
+        "s|enum|public.payment_method",
+        "n|enum|public.payment_method",
+        "e|enum|public.payment_method",
+        "n|type|public.payment_method"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "payment_status"
+      ],
+      "writes": [
+        "s|enum|public.payment_status",
+        "n|enum|public.payment_status",
+        "e|enum|public.payment_status",
+        "n|type|public.payment_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "setting_type"
+      ],
+      "writes": [
+        "s|enum|public.setting_type",
+        "n|enum|public.setting_type",
+        "e|enum|public.setting_type",
+        "n|type|public.setting_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "users"
+      ],
+      "writes": [
+        "s|tbl|public.users",
+        "n|tbl|public.users",
+        "e|tbl|public.users",
+        "n|rel|public.users",
+        "n|type|public.users",
+        "n|rel|public.users_pkey",
+        "n|rel|public.users_email_key",
+        "n|rel|public.users_phone_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.user_role",
+        "n|enum|public.user_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "otps"
+      ],
+      "writes": [
+        "s|tbl|public.otps",
+        "n|tbl|public.otps",
+        "e|tbl|public.otps",
+        "n|rel|public.otps",
+        "n|type|public.otps",
+        "n|rel|public.otps_pkey",
+        "n|rel|public.otps_user_id_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.otp_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "addresses"
+      ],
+      "writes": [
+        "s|tbl|public.addresses",
+        "n|tbl|public.addresses",
+        "e|tbl|public.addresses",
+        "n|rel|public.addresses",
+        "n|type|public.addresses",
+        "n|rel|public.addresses_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "categories"
+      ],
+      "writes": [
+        "s|tbl|public.categories",
+        "n|tbl|public.categories",
+        "e|tbl|public.categories",
+        "n|rel|public.categories",
+        "n|type|public.categories",
+        "n|rel|public.categories_pkey",
+        "n|rel|public.categories_slug_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.category_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "brands"
+      ],
+      "writes": [
+        "s|tbl|public.brands",
+        "n|tbl|public.brands",
+        "e|tbl|public.brands",
+        "n|rel|public.brands",
+        "n|type|public.brands",
+        "n|rel|public.brands_pkey",
+        "n|rel|public.brands_slug_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.brand_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "attributes"
+      ],
+      "writes": [
+        "s|tbl|public.attributes",
+        "n|tbl|public.attributes",
+        "e|tbl|public.attributes",
+        "n|rel|public.attributes",
+        "n|type|public.attributes",
+        "n|rel|public.attributes_pkey",
+        "n|rel|public.attributes_slug_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.display_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "attribute_values"
+      ],
+      "writes": [
+        "s|tbl|public.attribute_values",
+        "n|tbl|public.attribute_values",
+        "e|tbl|public.attribute_values",
+        "n|rel|public.attribute_values",
+        "n|type|public.attribute_values",
+        "n|rel|public.attribute_values_pkey",
+        "n|rel|public.attribute_values_slug_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "category_attributes"
+      ],
+      "writes": [
+        "s|tbl|public.category_attributes",
+        "n|tbl|public.category_attributes",
+        "e|tbl|public.category_attributes",
+        "n|rel|public.category_attributes",
+        "n|type|public.category_attributes",
+        "n|rel|public.category_attributes_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "products"
+      ],
+      "writes": [
+        "s|tbl|public.products",
+        "n|tbl|public.products",
+        "e|tbl|public.products",
+        "n|rel|public.products",
+        "n|type|public.products",
+        "n|rel|public.products_pkey",
+        "n|rel|public.products_slug_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.product_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "variants"
+      ],
+      "writes": [
+        "s|tbl|public.variants",
+        "n|tbl|public.variants",
+        "e|tbl|public.variants",
+        "n|rel|public.variants",
+        "n|type|public.variants",
+        "n|rel|public.variants_pkey",
+        "n|rel|public.variants_sku_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "variant_attribute_values"
+      ],
+      "writes": [
+        "s|tbl|public.variant_attribute_values",
+        "n|tbl|public.variant_attribute_values",
+        "e|tbl|public.variant_attribute_values",
+        "n|rel|public.variant_attribute_values",
+        "n|type|public.variant_attribute_values",
+        "n|rel|public.variant_attribute_values_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "product_images"
+      ],
+      "writes": [
+        "s|tbl|public.product_images",
+        "n|tbl|public.product_images",
+        "e|tbl|public.product_images",
+        "n|rel|public.product_images",
+        "n|type|public.product_images",
+        "n|rel|public.product_images_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "media_uploads"
+      ],
+      "writes": [
+        "s|tbl|public.media_uploads",
+        "n|tbl|public.media_uploads",
+        "e|tbl|public.media_uploads",
+        "n|rel|public.media_uploads",
+        "n|type|public.media_uploads",
+        "n|rel|public.media_uploads_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.media_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "banners"
+      ],
+      "writes": [
+        "s|tbl|public.banners",
+        "n|tbl|public.banners",
+        "e|tbl|public.banners",
+        "n|rel|public.banners",
+        "n|type|public.banners",
+        "n|rel|public.banners_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "coupons"
+      ],
+      "writes": [
+        "s|tbl|public.coupons",
+        "n|tbl|public.coupons",
+        "e|tbl|public.coupons",
+        "n|rel|public.coupons",
+        "n|type|public.coupons",
+        "n|rel|public.coupons_pkey",
+        "n|rel|public.coupons_code_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.discount_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "coupon_usages"
+      ],
+      "writes": [
+        "s|tbl|public.coupon_usages",
+        "n|tbl|public.coupon_usages",
+        "e|tbl|public.coupon_usages",
+        "n|rel|public.coupon_usages",
+        "n|type|public.coupon_usages",
+        "n|rel|public.coupon_usages_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "carts"
+      ],
+      "writes": [
+        "s|tbl|public.carts",
+        "n|tbl|public.carts",
+        "e|tbl|public.carts",
+        "n|rel|public.carts",
+        "n|type|public.carts",
+        "n|rel|public.carts_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "cart_items"
+      ],
+      "writes": [
+        "s|tbl|public.cart_items",
+        "n|tbl|public.cart_items",
+        "e|tbl|public.cart_items",
+        "n|rel|public.cart_items",
+        "n|type|public.cart_items",
+        "n|rel|public.cart_items_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "orders"
+      ],
+      "writes": [
+        "s|tbl|public.orders",
+        "n|tbl|public.orders",
+        "e|tbl|public.orders",
+        "n|rel|public.orders",
+        "n|type|public.orders",
+        "n|rel|public.orders_pkey",
+        "n|rel|public.orders_order_number_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.order_status",
+        "n|enum|public.payment_method",
+        "n|enum|public.payment_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "order_items"
+      ],
+      "writes": [
+        "s|tbl|public.order_items",
+        "n|tbl|public.order_items",
+        "e|tbl|public.order_items",
+        "n|rel|public.order_items",
+        "n|type|public.order_items",
+        "n|rel|public.order_items_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "site_settings"
+      ],
+      "writes": [
+        "s|tbl|public.site_settings",
+        "n|tbl|public.site_settings",
+        "e|tbl|public.site_settings",
+        "n|rel|public.site_settings",
+        "n|type|public.site_settings",
+        "n|rel|public.site_settings_pkey",
+        "n|rel|public.site_settings_key_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.setting_type"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "users",
+        "role"
+      ],
+      "writes": [
+        "s|idx|public.role",
+        "n|idx|public.role",
+        "e|idx|public.role",
+        "n|rel|public.role"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.users.role"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "users",
+        "status"
+      ],
+      "writes": [
+        "s|idx|public.status",
+        "n|idx|public.status",
+        "e|idx|public.status",
+        "n|rel|public.status"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.users.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "otps",
+        "otp_user_index"
+      ],
+      "writes": [
+        "s|idx|public.otp_user_index",
+        "n|idx|public.otp_user_index",
+        "e|idx|public.otp_user_index",
+        "n|rel|public.otp_user_index"
+      ],
+      "reads": [
+        "n|tbl|public.otps",
+        "n|sch|public",
+        "n|col|public.otps.user_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "categories",
+        "category_parent_id_index"
+      ],
+      "writes": [
+        "s|idx|public.category_parent_id_index",
+        "n|idx|public.category_parent_id_index",
+        "e|idx|public.category_parent_id_index",
+        "n|rel|public.category_parent_id_index"
+      ],
+      "reads": [
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|col|public.categories.parent_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "categories",
+        "category_status_index"
+      ],
+      "writes": [
+        "s|idx|public.category_status_index",
+        "n|idx|public.category_status_index",
+        "e|idx|public.category_status_index",
+        "n|rel|public.category_status_index"
+      ],
+      "reads": [
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|col|public.categories.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "categories",
+        "category_display_order_index"
+      ],
+      "writes": [
+        "s|idx|public.category_display_order_index",
+        "n|idx|public.category_display_order_index",
+        "e|idx|public.category_display_order_index",
+        "n|rel|public.category_display_order_index"
+      ],
+      "reads": [
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|col|public.categories.display_order"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "brands",
+        "brand_status_index"
+      ],
+      "writes": [
+        "s|idx|public.brand_status_index",
+        "n|idx|public.brand_status_index",
+        "e|idx|public.brand_status_index",
+        "n|rel|public.brand_status_index"
+      ],
+      "reads": [
+        "n|tbl|public.brands",
+        "n|sch|public",
+        "n|col|public.brands.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "brands",
+        "brand_is_featured"
+      ],
+      "writes": [
+        "s|idx|public.brand_is_featured",
+        "n|idx|public.brand_is_featured",
+        "e|idx|public.brand_is_featured",
+        "n|rel|public.brand_is_featured"
+      ],
+      "reads": [
+        "n|tbl|public.brands",
+        "n|sch|public",
+        "n|col|public.brands.is_featured"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "category_attributes",
+        "category_attribute_unique_idx"
+      ],
+      "writes": [
+        "s|idx|public.category_attribute_unique_idx",
+        "n|idx|public.category_attribute_unique_idx",
+        "e|idx|public.category_attribute_unique_idx",
+        "n|rel|public.category_attribute_unique_idx"
+      ],
+      "reads": [
+        "n|tbl|public.category_attributes",
+        "n|sch|public",
+        "n|col|public.category_attributes.category_id",
+        "n|col|public.category_attributes.attribute_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "category_attributes",
+        "category_attribute_attr_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.category_attribute_attr_id_idx",
+        "n|idx|public.category_attribute_attr_id_idx",
+        "e|idx|public.category_attribute_attr_id_idx",
+        "n|rel|public.category_attribute_attr_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.category_attributes",
+        "n|sch|public",
+        "n|col|public.category_attributes.attribute_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "products",
+        "product_created_by_index"
+      ],
+      "writes": [
+        "s|idx|public.product_created_by_index",
+        "n|idx|public.product_created_by_index",
+        "e|idx|public.product_created_by_index",
+        "n|rel|public.product_created_by_index"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.products.created_by"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "products",
+        "product_status_index"
+      ],
+      "writes": [
+        "s|idx|public.product_status_index",
+        "n|idx|public.product_status_index",
+        "e|idx|public.product_status_index",
+        "n|rel|public.product_status_index"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.products.product_status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "products",
+        "product_is_featured_index"
+      ],
+      "writes": [
+        "s|idx|public.product_is_featured_index",
+        "n|idx|public.product_is_featured_index",
+        "e|idx|public.product_is_featured_index",
+        "n|rel|public.product_is_featured_index"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.products.is_featured"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "products",
+        "product_price_index"
+      ],
+      "writes": [
+        "s|idx|public.product_price_index",
+        "n|idx|public.product_price_index",
+        "e|idx|public.product_price_index",
+        "n|rel|public.product_price_index"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.products.base_price"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "variants",
+        "variant_product_id_index"
+      ],
+      "writes": [
+        "s|idx|public.variant_product_id_index",
+        "n|idx|public.variant_product_id_index",
+        "e|idx|public.variant_product_id_index",
+        "n|rel|public.variant_product_id_index"
+      ],
+      "reads": [
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.variants.product_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "variants",
+        "variant_is_active_index"
+      ],
+      "writes": [
+        "s|idx|public.variant_is_active_index",
+        "n|idx|public.variant_is_active_index",
+        "e|idx|public.variant_is_active_index",
+        "n|rel|public.variant_is_active_index"
+      ],
+      "reads": [
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.variants.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "variants",
+        "variant_one_default_per_product_idx"
+      ],
+      "writes": [
+        "s|idx|public.variant_one_default_per_product_idx",
+        "n|idx|public.variant_one_default_per_product_idx",
+        "e|idx|public.variant_one_default_per_product_idx",
+        "n|rel|public.variant_one_default_per_product_idx"
+      ],
+      "reads": [
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.variants.product_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "variant_attribute_values",
+        "variant_attribute_value_unique_idx"
+      ],
+      "writes": [
+        "s|idx|public.variant_attribute_value_unique_idx",
+        "n|idx|public.variant_attribute_value_unique_idx",
+        "e|idx|public.variant_attribute_value_unique_idx",
+        "n|rel|public.variant_attribute_value_unique_idx"
+      ],
+      "reads": [
+        "n|tbl|public.variant_attribute_values",
+        "n|sch|public",
+        "n|col|public.variant_attribute_values.variant_id",
+        "n|col|public.variant_attribute_values.attribute_value_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "variant_attribute_values",
+        "vav_attribute_value_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.vav_attribute_value_id_idx",
+        "n|idx|public.vav_attribute_value_id_idx",
+        "e|idx|public.vav_attribute_value_id_idx",
+        "n|rel|public.vav_attribute_value_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.variant_attribute_values",
+        "n|sch|public",
+        "n|col|public.variant_attribute_values.attribute_value_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "product_images",
+        "product_images_product_id_index"
+      ],
+      "writes": [
+        "s|idx|public.product_images_product_id_index",
+        "n|idx|public.product_images_product_id_index",
+        "e|idx|public.product_images_product_id_index",
+        "n|rel|public.product_images_product_id_index"
+      ],
+      "reads": [
+        "n|tbl|public.product_images",
+        "n|sch|public",
+        "n|col|public.product_images.product_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "product_images",
+        "product_images_variant_id_index"
+      ],
+      "writes": [
+        "s|idx|public.product_images_variant_id_index",
+        "n|idx|public.product_images_variant_id_index",
+        "e|idx|public.product_images_variant_id_index",
+        "n|rel|public.product_images_variant_id_index"
+      ],
+      "reads": [
+        "n|tbl|public.product_images",
+        "n|sch|public",
+        "n|col|public.product_images.variant_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "product_images",
+        "product_images_one_primary_per_product_idx"
+      ],
+      "writes": [
+        "s|idx|public.product_images_one_primary_per_product_idx",
+        "n|idx|public.product_images_one_primary_per_product_idx",
+        "e|idx|public.product_images_one_primary_per_product_idx",
+        "n|rel|public.product_images_one_primary_per_product_idx"
+      ],
+      "reads": [
+        "n|tbl|public.product_images",
+        "n|sch|public",
+        "n|col|public.product_images.product_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "media_uploads",
+        "media_status_created_at_idx"
+      ],
+      "writes": [
+        "s|idx|public.media_status_created_at_idx",
+        "n|idx|public.media_status_created_at_idx",
+        "e|idx|public.media_status_created_at_idx",
+        "n|rel|public.media_status_created_at_idx"
+      ],
+      "reads": [
+        "n|tbl|public.media_uploads",
+        "n|sch|public",
+        "n|col|public.media_uploads.status",
+        "n|col|public.media_uploads.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "media_uploads",
+        "media_product_idx"
+      ],
+      "writes": [
+        "s|idx|public.media_product_idx",
+        "n|idx|public.media_product_idx",
+        "e|idx|public.media_product_idx",
+        "n|rel|public.media_product_idx"
+      ],
+      "reads": [
+        "n|tbl|public.media_uploads",
+        "n|sch|public",
+        "n|col|public.media_uploads.product_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupons",
+        "coupons_code_idx"
+      ],
+      "writes": [
+        "s|idx|public.coupons_code_idx",
+        "n|idx|public.coupons_code_idx",
+        "e|idx|public.coupons_code_idx",
+        "n|rel|public.coupons_code_idx"
+      ],
+      "reads": [
+        "n|tbl|public.coupons",
+        "n|sch|public",
+        "n|col|public.coupons.code"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupons",
+        "coupons_starts_at_expires_at"
+      ],
+      "writes": [
+        "s|idx|public.coupons_starts_at_expires_at",
+        "n|idx|public.coupons_starts_at_expires_at",
+        "e|idx|public.coupons_starts_at_expires_at",
+        "n|rel|public.coupons_starts_at_expires_at"
+      ],
+      "reads": [
+        "n|tbl|public.coupons",
+        "n|sch|public",
+        "n|col|public.coupons.starts_at",
+        "n|col|public.coupons.expires_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupons",
+        "coupons_is_active"
+      ],
+      "writes": [
+        "s|idx|public.coupons_is_active",
+        "n|idx|public.coupons_is_active",
+        "e|idx|public.coupons_is_active",
+        "n|rel|public.coupons_is_active"
+      ],
+      "reads": [
+        "n|tbl|public.coupons",
+        "n|sch|public",
+        "n|col|public.coupons.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupon_usages",
+        "coupon_usages_coupon_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.coupon_usages_coupon_id_idx",
+        "n|idx|public.coupon_usages_coupon_id_idx",
+        "e|idx|public.coupon_usages_coupon_id_idx",
+        "n|rel|public.coupon_usages_coupon_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|col|public.coupon_usages.coupon_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupon_usages",
+        "coupon_usages_user_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.coupon_usages_user_id_idx",
+        "n|idx|public.coupon_usages_user_id_idx",
+        "e|idx|public.coupon_usages_user_id_idx",
+        "n|rel|public.coupon_usages_user_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|col|public.coupon_usages.user_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupon_usages",
+        "coupon_usages_guest_phone_idx"
+      ],
+      "writes": [
+        "s|idx|public.coupon_usages_guest_phone_idx",
+        "n|idx|public.coupon_usages_guest_phone_idx",
+        "e|idx|public.coupon_usages_guest_phone_idx",
+        "n|rel|public.coupon_usages_guest_phone_idx"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|col|public.coupon_usages.guest_phone"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "coupon_usages",
+        "coupon_usages_order_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.coupon_usages_order_id_idx",
+        "n|idx|public.coupon_usages_order_id_idx",
+        "e|idx|public.coupon_usages_order_id_idx",
+        "n|rel|public.coupon_usages_order_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|col|public.coupon_usages.order_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "carts",
+        "cart_user_idx"
+      ],
+      "writes": [
+        "s|idx|public.cart_user_idx",
+        "n|idx|public.cart_user_idx",
+        "e|idx|public.cart_user_idx",
+        "n|rel|public.cart_user_idx"
+      ],
+      "reads": [
+        "n|tbl|public.carts",
+        "n|sch|public",
+        "n|col|public.carts.user_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "carts",
+        "cart_session_token_idx"
+      ],
+      "writes": [
+        "s|idx|public.cart_session_token_idx",
+        "n|idx|public.cart_session_token_idx",
+        "e|idx|public.cart_session_token_idx",
+        "n|rel|public.cart_session_token_idx"
+      ],
+      "reads": [
+        "n|tbl|public.carts",
+        "n|sch|public",
+        "n|col|public.carts.session_token"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "cart_items",
+        "cart_variant_unique_index"
+      ],
+      "writes": [
+        "s|idx|public.cart_variant_unique_index",
+        "n|idx|public.cart_variant_unique_index",
+        "e|idx|public.cart_variant_unique_index",
+        "n|rel|public.cart_variant_unique_index"
+      ],
+      "reads": [
+        "n|tbl|public.cart_items",
+        "n|sch|public",
+        "n|col|public.cart_items.cart_id",
+        "n|col|public.cart_items.variant_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "order_items",
+        "order_item_order_idx"
+      ],
+      "writes": [
+        "s|idx|public.order_item_order_idx",
+        "n|idx|public.order_item_order_idx",
+        "e|idx|public.order_item_order_idx",
+        "n|rel|public.order_item_order_idx"
+      ],
+      "reads": [
+        "n|tbl|public.order_items",
+        "n|sch|public",
+        "n|col|public.order_items.order_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "order_items",
+        "order_item_variant_idx"
+      ],
+      "writes": [
+        "s|idx|public.order_item_variant_idx",
+        "n|idx|public.order_item_variant_idx",
+        "e|idx|public.order_item_variant_idx",
+        "n|rel|public.order_item_variant_idx"
+      ],
+      "reads": [
+        "n|tbl|public.order_items",
+        "n|sch|public",
+        "n|col|public.order_items.variant_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "otps"
+      ],
+      "writes": [
+        "s|fk|public.otps.otps_user_id_users_user_id_fkey",
+        "n|fk|public.otps.otps_user_id_users_user_id_fkey",
+        "e|fk|public.otps.otps_user_id_users_user_id_fkey",
+        "n|con|public.otps.otps_user_id_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.otps",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.otps.user_id",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "addresses"
+      ],
+      "writes": [
+        "s|fk|public.addresses.addresses_user_id_users_user_id_fkey",
+        "n|fk|public.addresses.addresses_user_id_users_user_id_fkey",
+        "e|fk|public.addresses.addresses_user_id_users_user_id_fkey",
+        "n|con|public.addresses.addresses_user_id_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.addresses",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.addresses.user_id",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "categories"
+      ],
+      "writes": [
+        "s|fk|public.categories.categories_parent_id_categories_category_id_fkey",
+        "n|fk|public.categories.categories_parent_id_categories_category_id_fkey",
+        "e|fk|public.categories.categories_parent_id_categories_category_id_fkey",
+        "n|con|public.categories.categories_parent_id_categories_category_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|col|public.categories.parent_id",
+        "n|col|public.categories.category_id",
+        "e|uniqueness|public.categories.category_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "attribute_values"
+      ],
+      "writes": [
+        "s|fk|public.attribute_values.attribute_values_attribute_id_attributes_attribute_id_fkey",
+        "n|fk|public.attribute_values.attribute_values_attribute_id_attributes_attribute_id_fkey",
+        "e|fk|public.attribute_values.attribute_values_attribute_id_attributes_attribute_id_fkey",
+        "n|con|public.attribute_values.attribute_values_attribute_id_attributes_attribute_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.attribute_values",
+        "n|sch|public",
+        "n|tbl|public.attributes",
+        "n|sch|public",
+        "n|col|public.attribute_values.attribute_id",
+        "n|col|public.attributes.attribute_id",
+        "e|uniqueness|public.attributes.attribute_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "category_attributes"
+      ],
+      "writes": [
+        "s|fk|public.category_attributes.category_attributes_category_id_categories_category_id_fkey",
+        "n|fk|public.category_attributes.category_attributes_category_id_categories_category_id_fkey",
+        "e|fk|public.category_attributes.category_attributes_category_id_categories_category_id_fkey",
+        "n|con|public.category_attributes.category_attributes_category_id_categories_category_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.category_attributes",
+        "n|sch|public",
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|col|public.category_attributes.category_id",
+        "n|col|public.categories.category_id",
+        "e|uniqueness|public.categories.category_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "category_attributes"
+      ],
+      "writes": [
+        "s|fk|public.category_attributes.category_attributes_attribute_id_attributes_attribute_id_fkey",
+        "n|fk|public.category_attributes.category_attributes_attribute_id_attributes_attribute_id_fkey",
+        "e|fk|public.category_attributes.category_attributes_attribute_id_attributes_attribute_id_fkey",
+        "n|con|public.category_attributes.category_attributes_attribute_id_attributes_attribute_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.category_attributes",
+        "n|sch|public",
+        "n|tbl|public.attributes",
+        "n|sch|public",
+        "n|col|public.category_attributes.attribute_id",
+        "n|col|public.attributes.attribute_id",
+        "e|uniqueness|public.attributes.attribute_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "products"
+      ],
+      "writes": [
+        "s|fk|public.products.products_created_by_users_user_id_fkey",
+        "n|fk|public.products.products_created_by_users_user_id_fkey",
+        "e|fk|public.products.products_created_by_users_user_id_fkey",
+        "n|con|public.products.products_created_by_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.products.created_by",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "products"
+      ],
+      "writes": [
+        "s|fk|public.products.products_category_id_categories_category_id_fkey",
+        "n|fk|public.products.products_category_id_categories_category_id_fkey",
+        "e|fk|public.products.products_category_id_categories_category_id_fkey",
+        "n|con|public.products.products_category_id_categories_category_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|tbl|public.categories",
+        "n|sch|public",
+        "n|col|public.products.category_id",
+        "n|col|public.categories.category_id",
+        "e|uniqueness|public.categories.category_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "products"
+      ],
+      "writes": [
+        "s|fk|public.products.products_brand_id_brands_brand_id_fkey",
+        "n|fk|public.products.products_brand_id_brands_brand_id_fkey",
+        "e|fk|public.products.products_brand_id_brands_brand_id_fkey",
+        "n|con|public.products.products_brand_id_brands_brand_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|tbl|public.brands",
+        "n|sch|public",
+        "n|col|public.products.brand_id",
+        "n|col|public.brands.brand_id",
+        "e|uniqueness|public.brands.brand_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "variants"
+      ],
+      "writes": [
+        "s|fk|public.variants.variants_product_id_products_product_id_fkey",
+        "n|fk|public.variants.variants_product_id_products_product_id_fkey",
+        "e|fk|public.variants.variants_product_id_products_product_id_fkey",
+        "n|con|public.variants.variants_product_id_products_product_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.variants.product_id",
+        "n|col|public.products.product_id",
+        "e|uniqueness|public.products.product_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "variant_attribute_values"
+      ],
+      "writes": [
+        "s|fk|public.variant_attribute_values.variant_attribute_values_variant_id_variants_variant_id_fkey",
+        "n|fk|public.variant_attribute_values.variant_attribute_values_variant_id_variants_variant_id_fkey",
+        "e|fk|public.variant_attribute_values.variant_attribute_values_variant_id_variants_variant_id_fkey",
+        "n|con|public.variant_attribute_values.variant_attribute_values_variant_id_variants_variant_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.variant_attribute_values",
+        "n|sch|public",
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.variant_attribute_values.variant_id",
+        "n|col|public.variants.variant_id",
+        "e|uniqueness|public.variants.variant_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "variant_attribute_values"
+      ],
+      "writes": [
+        "s|fk|public.variant_attribute_values.variant_attribute_values_8hNIxLoueGpH_fkey",
+        "n|fk|public.variant_attribute_values.variant_attribute_values_8hNIxLoueGpH_fkey",
+        "e|fk|public.variant_attribute_values.variant_attribute_values_8hNIxLoueGpH_fkey",
+        "n|con|public.variant_attribute_values.variant_attribute_values_8hNIxLoueGpH_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.variant_attribute_values",
+        "n|sch|public",
+        "n|tbl|public.attribute_values",
+        "n|sch|public",
+        "n|col|public.variant_attribute_values.attribute_value_id",
+        "n|col|public.attribute_values.attribute_value_id",
+        "e|uniqueness|public.attribute_values.attribute_value_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "product_images"
+      ],
+      "writes": [
+        "s|fk|public.product_images.product_images_product_id_products_product_id_fkey",
+        "n|fk|public.product_images.product_images_product_id_products_product_id_fkey",
+        "e|fk|public.product_images.product_images_product_id_products_product_id_fkey",
+        "n|con|public.product_images.product_images_product_id_products_product_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.product_images",
+        "n|sch|public",
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.product_images.product_id",
+        "n|col|public.products.product_id",
+        "e|uniqueness|public.products.product_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "product_images"
+      ],
+      "writes": [
+        "s|fk|public.product_images.product_images_variant_id_variants_variant_id_fkey",
+        "n|fk|public.product_images.product_images_variant_id_variants_variant_id_fkey",
+        "e|fk|public.product_images.product_images_variant_id_variants_variant_id_fkey",
+        "n|con|public.product_images.product_images_variant_id_variants_variant_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.product_images",
+        "n|sch|public",
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.product_images.variant_id",
+        "n|col|public.variants.variant_id",
+        "e|uniqueness|public.variants.variant_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "media_uploads"
+      ],
+      "writes": [
+        "s|fk|public.media_uploads.media_uploads_uploaded_by_users_user_id_fkey",
+        "n|fk|public.media_uploads.media_uploads_uploaded_by_users_user_id_fkey",
+        "e|fk|public.media_uploads.media_uploads_uploaded_by_users_user_id_fkey",
+        "n|con|public.media_uploads.media_uploads_uploaded_by_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.media_uploads",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.media_uploads.uploaded_by",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "media_uploads"
+      ],
+      "writes": [
+        "s|fk|public.media_uploads.media_uploads_product_id_products_product_id_fkey",
+        "n|fk|public.media_uploads.media_uploads_product_id_products_product_id_fkey",
+        "e|fk|public.media_uploads.media_uploads_product_id_products_product_id_fkey",
+        "n|con|public.media_uploads.media_uploads_product_id_products_product_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.media_uploads",
+        "n|sch|public",
+        "n|tbl|public.products",
+        "n|sch|public",
+        "n|col|public.media_uploads.product_id",
+        "n|col|public.products.product_id",
+        "e|uniqueness|public.products.product_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "coupon_usages"
+      ],
+      "writes": [
+        "s|fk|public.coupon_usages.coupon_usages_coupon_id_coupons_coupon_id_fkey",
+        "n|fk|public.coupon_usages.coupon_usages_coupon_id_coupons_coupon_id_fkey",
+        "e|fk|public.coupon_usages.coupon_usages_coupon_id_coupons_coupon_id_fkey",
+        "n|con|public.coupon_usages.coupon_usages_coupon_id_coupons_coupon_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|tbl|public.coupons",
+        "n|sch|public",
+        "n|col|public.coupon_usages.coupon_id",
+        "n|col|public.coupons.coupon_id",
+        "e|uniqueness|public.coupons.coupon_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "coupon_usages"
+      ],
+      "writes": [
+        "s|fk|public.coupon_usages.coupon_usages_user_id_users_user_id_fkey",
+        "n|fk|public.coupon_usages.coupon_usages_user_id_users_user_id_fkey",
+        "e|fk|public.coupon_usages.coupon_usages_user_id_users_user_id_fkey",
+        "n|con|public.coupon_usages.coupon_usages_user_id_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.coupon_usages.user_id",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "coupon_usages"
+      ],
+      "writes": [
+        "s|fk|public.coupon_usages.coupon_usages_order_id_orders_order_id_fkey",
+        "n|fk|public.coupon_usages.coupon_usages_order_id_orders_order_id_fkey",
+        "e|fk|public.coupon_usages.coupon_usages_order_id_orders_order_id_fkey",
+        "n|con|public.coupon_usages.coupon_usages_order_id_orders_order_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.coupon_usages",
+        "n|sch|public",
+        "n|tbl|public.orders",
+        "n|sch|public",
+        "n|col|public.coupon_usages.order_id",
+        "n|col|public.orders.order_id",
+        "e|uniqueness|public.orders.order_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "carts"
+      ],
+      "writes": [
+        "s|fk|public.carts.carts_user_id_users_user_id_fkey",
+        "n|fk|public.carts.carts_user_id_users_user_id_fkey",
+        "e|fk|public.carts.carts_user_id_users_user_id_fkey",
+        "n|con|public.carts.carts_user_id_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.carts",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.carts.user_id",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "carts"
+      ],
+      "writes": [
+        "s|fk|public.carts.carts_coupon_id_coupons_coupon_id_fkey",
+        "n|fk|public.carts.carts_coupon_id_coupons_coupon_id_fkey",
+        "e|fk|public.carts.carts_coupon_id_coupons_coupon_id_fkey",
+        "n|con|public.carts.carts_coupon_id_coupons_coupon_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.carts",
+        "n|sch|public",
+        "n|tbl|public.coupons",
+        "n|sch|public",
+        "n|col|public.carts.coupon_id",
+        "n|col|public.coupons.coupon_id",
+        "e|uniqueness|public.coupons.coupon_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "cart_items"
+      ],
+      "writes": [
+        "s|fk|public.cart_items.cart_items_cart_id_carts_cart_id_fkey",
+        "n|fk|public.cart_items.cart_items_cart_id_carts_cart_id_fkey",
+        "e|fk|public.cart_items.cart_items_cart_id_carts_cart_id_fkey",
+        "n|con|public.cart_items.cart_items_cart_id_carts_cart_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.cart_items",
+        "n|sch|public",
+        "n|tbl|public.carts",
+        "n|sch|public",
+        "n|col|public.cart_items.cart_id",
+        "n|col|public.carts.cart_id",
+        "e|uniqueness|public.carts.cart_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "cart_items"
+      ],
+      "writes": [
+        "s|fk|public.cart_items.cart_items_variant_id_variants_variant_id_fkey",
+        "n|fk|public.cart_items.cart_items_variant_id_variants_variant_id_fkey",
+        "e|fk|public.cart_items.cart_items_variant_id_variants_variant_id_fkey",
+        "n|con|public.cart_items.cart_items_variant_id_variants_variant_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.cart_items",
+        "n|sch|public",
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.cart_items.variant_id",
+        "n|col|public.variants.variant_id",
+        "e|uniqueness|public.variants.variant_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "orders"
+      ],
+      "writes": [
+        "s|fk|public.orders.orders_user_id_users_user_id_fkey",
+        "n|fk|public.orders.orders_user_id_users_user_id_fkey",
+        "e|fk|public.orders.orders_user_id_users_user_id_fkey",
+        "n|con|public.orders.orders_user_id_users_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.orders",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.orders.user_id",
+        "n|col|public.users.user_id",
+        "e|uniqueness|public.users.user_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "orders"
+      ],
+      "writes": [
+        "s|fk|public.orders.orders_coupon_id_coupons_coupon_id_fkey",
+        "n|fk|public.orders.orders_coupon_id_coupons_coupon_id_fkey",
+        "e|fk|public.orders.orders_coupon_id_coupons_coupon_id_fkey",
+        "n|con|public.orders.orders_coupon_id_coupons_coupon_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.orders",
+        "n|sch|public",
+        "n|tbl|public.coupons",
+        "n|sch|public",
+        "n|col|public.orders.coupon_id",
+        "n|col|public.coupons.coupon_id",
+        "e|uniqueness|public.coupons.coupon_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "orders"
+      ],
+      "writes": [
+        "s|fk|public.orders.orders_address_id_addresses_address_id_fkey",
+        "n|fk|public.orders.orders_address_id_addresses_address_id_fkey",
+        "e|fk|public.orders.orders_address_id_addresses_address_id_fkey",
+        "n|con|public.orders.orders_address_id_addresses_address_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.orders",
+        "n|sch|public",
+        "n|tbl|public.addresses",
+        "n|sch|public",
+        "n|col|public.orders.address_id",
+        "n|col|public.addresses.address_id",
+        "e|uniqueness|public.addresses.address_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "order_items"
+      ],
+      "writes": [
+        "s|fk|public.order_items.order_items_order_id_orders_order_id_fkey",
+        "n|fk|public.order_items.order_items_order_id_orders_order_id_fkey",
+        "e|fk|public.order_items.order_items_order_id_orders_order_id_fkey",
+        "n|con|public.order_items.order_items_order_id_orders_order_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.order_items",
+        "n|sch|public",
+        "n|tbl|public.orders",
+        "n|sch|public",
+        "n|col|public.order_items.order_id",
+        "n|col|public.orders.order_id",
+        "e|uniqueness|public.orders.order_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "order_items"
+      ],
+      "writes": [
+        "s|fk|public.order_items.order_items_variant_id_variants_variant_id_fkey",
+        "n|fk|public.order_items.order_items_variant_id_variants_variant_id_fkey",
+        "e|fk|public.order_items.order_items_variant_id_variants_variant_id_fkey",
+        "n|con|public.order_items.order_items_variant_id_variants_variant_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.order_items",
+        "n|sch|public",
+        "n|tbl|public.variants",
+        "n|sch|public",
+        "n|col|public.order_items.variant_id",
+        "n|col|public.variants.variant_id",
+        "e|uniqueness|public.variants.variant_id"
+      ]
+    }
+  ],
+  "ddl": [
+    {
+      "schema": "public",
+      "name": "users",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "otps",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "addresses",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "categories",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "brands",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "attributes",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "attribute_values",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "category_attributes",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "products",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "variants",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "variant_attribute_values",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "product_images",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "media_uploads",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "banners",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "coupons",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "coupon_usages",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "carts",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "cart_items",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "orders",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "order_items",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "site_settings",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "user_role",
+      "values": [
+        "admin",
+        "super_admin",
+        "user",
+        "moderator"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "user_status",
+      "values": [
+        "pending",
+        "active",
+        "blocked",
+        "deactivated"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "otp_type",
+      "values": [
+        "signup",
+        "reset-password"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "category_status",
+      "values": [
+        "active",
+        "inactive",
+        "archived"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "brand_status",
+      "values": [
+        "draft",
+        "active",
+        "inactive",
+        "archived"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "display_type",
+      "values": [
+        "text",
+        "color_swatch",
+        "image_swatch"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "product_status",
+      "values": [
+        "draft",
+        "active",
+        "inactive",
+        "archived"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "media_status",
+      "values": [
+        "pending",
+        "attached"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "discount_type",
+      "values": [
+        "FIXED_AMOUNT",
+        "PERCENTAGE"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "order_status",
+      "values": [
+        "pending",
+        "confirmed",
+        "processing",
+        "shipped",
+        "delivered",
+        "cancelled",
+        "returned"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "payment_method",
+      "values": [
+        "cod",
+        "bkash_manual",
+        "nagad_manual",
+        "rocket_manual",
+        "bank_transfer"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "payment_status",
+      "values": [
+        "unpaid",
+        "pending_verification",
+        "paid",
+        "failed",
+        "refunded"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "setting_type",
+      "values": [
+        "light_theme",
+        "dark_theme",
+        "site_meta",
+        "social_links",
+        "contact_info",
+        "shipping_charge"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "user_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "name",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "email",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "phone",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "password_hash",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "profile_image",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "role",
+      "type": "user_role",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'user'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "status",
+      "type": "user_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "is_otp_verified",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "is_two_factor_enabled",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "blocked_reason",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "deletion_reason",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "verified_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "blocked_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "last_login",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "last_activity",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "timezone",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'Asia/Dhaka'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "user_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "type",
+      "type": "otp_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "otp_hash",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "expires_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "address_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "user_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "phone_number",
+      "type": "varchar",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "address_line_1",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "address_line_2",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "postal_code",
+      "type": "varchar(4)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "city",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "state",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "country",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'bangladesh'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "category_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "parent_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "title",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "description",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "slug",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "image_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "image_alt_text",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "depth",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "1",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "status",
+      "type": "category_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'active'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "display_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "meta_title",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "meta_description",
+      "type": "varchar(180)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "og_image_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "brand_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "name",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "slug",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "description",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "image_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "image_alt_text",
+      "type": "varchar(120)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "is_featured",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "display_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "status",
+      "type": "brand_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'draft'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "meta_title",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "meta_description",
+      "type": "varchar(180)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "og_image_url",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "attribute_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "slug",
+      "type": "varchar(120)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "display_type",
+      "type": "display_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "sort_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "attribute_value_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "attribute_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "slug",
+      "type": "varchar(120)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "color_hex",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "image_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "sort_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "category_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "attribute_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "is_required",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "is_filterable",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "display_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "product_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "created_by",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "title",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "slug",
+      "type": "varchar(280)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "short_description",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "description",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "category_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "brand_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "thumbnail_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "thumbnail_alt_text",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "base_price",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "compare_at_price",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "has_variants",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "specifications",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "product_status",
+      "type": "product_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'draft'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "is_featured",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "avg_rating",
+      "type": "numeric(3,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0.00'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "review_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "total_sold",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "published_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "meta_title",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "meta_description",
+      "type": "varchar(180)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "og_image_url",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variant_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "product_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "sku",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "barcode",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "title",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "price",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "original_price",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "cost_price",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "stock_quantity",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "low_stock_threshold",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "5",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "weight_grams",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "is_default",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "display_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "variant_attribute_value_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "variant_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "attribute_value_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "image_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "variant_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "image_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "public_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "alt_text",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "is_primary",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "display_order",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "media_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "uploaded_by",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "product_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "public_id",
+      "type": "varchar",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "status",
+      "type": "media_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "banner_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "title",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "image_url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "starts_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "ends_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "coupon_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "code",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "discount_value",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "discount_type",
+      "type": "discount_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "max_discount_amount",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "min_order_amount",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "starts_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "expires_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "usage_limit",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "used_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "per_user_limit",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "code_usages_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "user_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "order_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "guest_phone",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "discount_amount",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "used_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "cart_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "user_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "session_token",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "coupon_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "discount_amount",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "cart_item_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "cart_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "variant_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "quantity",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "1",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "order_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "order_number",
+      "type": "varchar",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "user_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "coupon_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "address_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "customer_name",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "customer_email",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "customer_phone",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "shipping_address",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "subtotal",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "discount_amount",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "delivery_charge",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "total_amount",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "order_status",
+      "type": "order_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "payment_method",
+      "type": "payment_method",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "payment_status",
+      "type": "payment_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'unpaid'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "manual_trx_id",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "manual_sender_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "paid_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_items",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "variant_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "product_title",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "variant_sku",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "attribute_summary",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "unit_price",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "quantity",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "line_total",
+      "type": "numeric(12,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "setting_id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "key",
+      "type": "setting_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "value",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "role",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "role",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "status",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "otp_user_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "user_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "category_parent_id_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "parent_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "category_status_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "category_display_order_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "display_order",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "brand_status_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "brand_is_featured",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_featured",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "category_attribute_unique_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "category_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "attribute_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": true,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "category_attribute_attr_id_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "attribute_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "product_created_by_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_by",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "product_status_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "product_status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "product_is_featured_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_featured",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "product_price_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "base_price",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variant_product_id_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "product_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variant_is_active_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variant_one_default_per_product_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "product_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": true,
+      "where": "\"is_default\" = true",
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "variant_attribute_value_unique_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "variant_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "attribute_value_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": true,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "vav_attribute_value_id_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "attribute_value_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_images_product_id_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "product_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_images_variant_id_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "variant_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_images_one_primary_per_product_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "product_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": true,
+      "where": "\"is_primary\" = true",
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "media_status_created_at_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "media_product_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "product_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "coupons_code_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "code",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "coupons_starts_at_expires_at",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "starts_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "expires_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "coupons_is_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_coupon_id_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "coupon_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_user_id_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "user_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_guest_phone_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "guest_phone",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_order_id_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "order_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "cart_user_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "user_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "cart_session_token_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "session_token",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "cart_variant_unique_index",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "cart_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "variant_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": true,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_item_order_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "order_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_item_variant_idx",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "variant_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "otps_user_id_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "addresses_user_id_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "categories_parent_id_categories_category_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "parent_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "categories",
+      "columnsTo": [
+        "category_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "RESTRICT",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "attribute_values_attribute_id_attributes_attribute_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "attribute_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "attributes",
+      "columnsTo": [
+        "attribute_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "category_attributes_category_id_categories_category_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "category_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "categories",
+      "columnsTo": [
+        "category_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "category_attributes_attribute_id_attributes_attribute_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "attribute_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "attributes",
+      "columnsTo": [
+        "attribute_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "products_created_by_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "created_by"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "products_category_id_categories_category_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "category_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "categories",
+      "columnsTo": [
+        "category_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "RESTRICT",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "products_brand_id_brands_brand_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "brand_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "brands",
+      "columnsTo": [
+        "brand_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variants_product_id_products_product_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "product_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "products",
+      "columnsTo": [
+        "product_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "variant_attribute_values_variant_id_variants_variant_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "variant_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "variants",
+      "columnsTo": [
+        "variant_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "variant_attribute_values_8hNIxLoueGpH_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "attribute_value_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "attribute_values",
+      "columnsTo": [
+        "attribute_value_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "RESTRICT",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_images_product_id_products_product_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "product_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "products",
+      "columnsTo": [
+        "product_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_images_variant_id_variants_variant_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "variant_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "variants",
+      "columnsTo": [
+        "variant_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "media_uploads_uploaded_by_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "uploaded_by"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "media_uploads_product_id_products_product_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "product_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "products",
+      "columnsTo": [
+        "product_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_coupon_id_coupons_coupon_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "coupon_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "coupons",
+      "columnsTo": [
+        "coupon_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_user_id_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_order_id_orders_order_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "order_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "orders",
+      "columnsTo": [
+        "order_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "carts_user_id_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "carts_coupon_id_coupons_coupon_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "coupon_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "coupons",
+      "columnsTo": [
+        "coupon_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "cart_items_cart_id_carts_cart_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "cart_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "carts",
+      "columnsTo": [
+        "cart_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "cart_items_variant_id_variants_variant_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "variant_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "variants",
+      "columnsTo": [
+        "variant_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "orders_user_id_users_user_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "user_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "orders_coupon_id_coupons_coupon_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "coupon_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "coupons",
+      "columnsTo": [
+        "coupon_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "orders_address_id_addresses_address_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "address_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "addresses",
+      "columnsTo": [
+        "address_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_items_order_id_orders_order_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "order_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "orders",
+      "columnsTo": [
+        "order_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_items_variant_id_variants_variant_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "variant_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "variants",
+      "columnsTo": [
+        "variant_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "users_pkey",
+      "columns": [
+        "user_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "otps_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "addresses",
+      "name": "addresses_pkey",
+      "columns": [
+        "address_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "categories_pkey",
+      "columns": [
+        "category_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "brands_pkey",
+      "columns": [
+        "brand_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "attributes_pkey",
+      "columns": [
+        "attribute_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "attribute_values_pkey",
+      "columns": [
+        "attribute_value_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "category_attributes",
+      "name": "category_attributes_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "products_pkey",
+      "columns": [
+        "product_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variants_pkey",
+      "columns": [
+        "variant_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "variant_attribute_values",
+      "name": "variant_attribute_values_pkey",
+      "columns": [
+        "variant_attribute_value_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "product_images",
+      "name": "product_images_pkey",
+      "columns": [
+        "image_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "media_uploads",
+      "name": "media_uploads_pkey",
+      "columns": [
+        "media_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "banners",
+      "name": "banners_pkey",
+      "columns": [
+        "banner_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "coupons_pkey",
+      "columns": [
+        "coupon_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "coupon_usages",
+      "name": "coupon_usages_pkey",
+      "columns": [
+        "code_usages_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "carts",
+      "name": "carts_pkey",
+      "columns": [
+        "cart_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items",
+      "name": "cart_items_pkey",
+      "columns": [
+        "cart_item_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "orders_pkey",
+      "columns": [
+        "order_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "order_items",
+      "name": "order_items_pkey",
+      "columns": [
+        "order_items"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "site_settings_pkey",
+      "columns": [
+        "setting_id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "users_email_key",
+      "nameExplicit": false,
+      "columns": [
+        "email"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "users_phone_key",
+      "nameExplicit": false,
+      "columns": [
+        "phone"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "otps",
+      "name": "otps_user_id_key",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "categories",
+      "name": "categories_slug_key",
+      "nameExplicit": false,
+      "columns": [
+        "slug"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "brands",
+      "name": "brands_slug_key",
+      "nameExplicit": false,
+      "columns": [
+        "slug"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "attributes",
+      "name": "attributes_slug_key",
+      "nameExplicit": false,
+      "columns": [
+        "slug"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "attribute_values",
+      "name": "attribute_values_slug_key",
+      "nameExplicit": false,
+      "columns": [
+        "slug"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "products",
+      "name": "products_slug_key",
+      "nameExplicit": false,
+      "columns": [
+        "slug"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variants_sku_key",
+      "nameExplicit": false,
+      "columns": [
+        "sku"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "coupons",
+      "name": "coupons_code_key",
+      "nameExplicit": false,
+      "columns": [
+        "code"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "orders",
+      "name": "orders_order_number_key",
+      "nameExplicit": false,
+      "columns": [
+        "order_number"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "site_settings",
+      "name": "site_settings_key_key",
+      "nameExplicit": false,
+      "columns": [
+        "key"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variant_stock_non_negative",
+      "value": "\"stock_quantity\" >= 0",
+      "entityType": "checks"
+    },
+    {
+      "schema": "public",
+      "table": "variants",
+      "name": "variant_wight_grams_non_negative",
+      "value": "\"weight_grams\" >= 0",
+      "entityType": "checks"
+    }
+  ]
+}

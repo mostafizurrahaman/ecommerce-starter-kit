@@ -22,7 +22,7 @@ export const otps = pgTable(
         onDelete: "cascade",
       }),
     type: otpEnum("type").notNull(),
-    code: varchar("code", { length: 6 }).notNull(),
+    otp_hash: varchar("otp_hash", { length: 255 }).notNull(),
     expires_at: timestamp("expires_at", {
       withTimezone: true,
       mode: "date",
@@ -45,3 +45,7 @@ export const otps = pgTable(
     return [index("otp_user_index").on(table.user_id)];
   },
 );
+
+export type TOtpInsertType = typeof otps.$inferInsert;
+export type TOtpGetType = typeof otps.$inferSelect;
+export type TOtpType = (typeof otpEnum.enumValues)[number]

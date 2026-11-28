@@ -14,10 +14,6 @@ let server: Server;
 //  bootstrap function :
 const bootstrap = async () => {
   try {
-    await connectDB(configs.databaseUrl);
-
-    // await sendSuperAdmin();
-
     // server listen :
     server = app.listen(configs.port, () => {
       logger.info(`🧑‍🚀🚀 Server is running on ${configs.port}`);

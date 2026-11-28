@@ -1,3 +1,7 @@
+CREATE TYPE "user_role" AS ENUM('admin', 'super_admin', 'user', 'moderator');--> statement-breakpoint
+CREATE TYPE "user_status" AS ENUM('pending', 'active', 'blocked', 'deactivated');--> statement-breakpoint
+CREATE TYPE "otp_type" AS ENUM('signup', 'reset-password');--> statement-breakpoint
+CREATE TYPE "category_status" AS ENUM('active', 'inactive', 'archived');--> statement-breakpoint
 CREATE TYPE "brand_status" AS ENUM('draft', 'active', 'inactive', 'archived');--> statement-breakpoint
 CREATE TYPE "display_type" AS ENUM('text', 'color_swatch', 'image_swatch');--> statement-breakpoint
 CREATE TYPE "product_status" AS ENUM('draft', 'active', 'inactive', 'archived');--> statement-breakpoint
@@ -7,6 +11,38 @@ CREATE TYPE "order_status" AS ENUM('pending', 'confirmed', 'processing', 'shippe
 CREATE TYPE "payment_method" AS ENUM('cod', 'bkash_manual', 'nagad_manual', 'rocket_manual', 'bank_transfer');--> statement-breakpoint
 CREATE TYPE "payment_status" AS ENUM('unpaid', 'pending_verification', 'paid', 'failed', 'refunded');--> statement-breakpoint
 CREATE TYPE "setting_type" AS ENUM('light_theme', 'dark_theme', 'site_meta', 'social_links', 'contact_info', 'shipping_charge');--> statement-breakpoint
+CREATE TABLE "users" (
+	"user_id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+	"name" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL UNIQUE,
+	"phone" varchar(20) NOT NULL UNIQUE,
+	"password_hash" text NOT NULL,
+	"profile_image" text,
+	"role" "user_role" DEFAULT 'user'::"user_role" NOT NULL,
+	"status" "user_status" DEFAULT 'pending'::"user_status" NOT NULL,
+	"is_otp_verified" boolean DEFAULT false NOT NULL,
+	"is_two_factor_enabled" boolean DEFAULT false NOT NULL,
+	"blocked_reason" varchar(255),
+	"deletion_reason" varchar(255),
+	"verified_at" timestamp with time zone,
+	"blocked_at" timestamp with time zone,
+	"last_login" timestamp with time zone,
+	"last_activity" timestamp with time zone,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"timezone" varchar(50) DEFAULT 'Asia/Dhaka' NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "otps" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+	"user_id" uuid NOT NULL UNIQUE,
+	"type" "otp_type" NOT NULL,
+	"otp_hash" varchar(255) NOT NULL,
+	"expires_at" timestamp with time zone NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "addresses" (
 	"address_id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 	"user_id" uuid,
@@ -17,6 +53,24 @@ CREATE TABLE "addresses" (
 	"city" varchar(50) NOT NULL,
 	"state" varchar(50) NOT NULL,
 	"country" varchar(50) DEFAULT 'bangladesh' NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "categories" (
+	"category_id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+	"parent_id" uuid,
+	"title" varchar(255) NOT NULL,
+	"description" text,
+	"slug" varchar(255) NOT NULL UNIQUE,
+	"image_url" text,
+	"image_alt_text" varchar(255),
+	"depth" smallint DEFAULT 1 NOT NULL,
+	"status" "category_status" DEFAULT 'active'::"category_status" NOT NULL,
+	"display_order" smallint DEFAULT 0 NOT NULL,
+	"meta_title" varchar(100),
+	"meta_description" varchar(180),
+	"og_image_url" text,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "brands" (
@@ -247,6 +301,12 @@ CREATE TABLE "site_settings" (
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
+CREATE INDEX "role" ON "users" ("role");--> statement-breakpoint
+CREATE INDEX "status" ON "users" ("status");--> statement-breakpoint
+CREATE INDEX "otp_user_index" ON "otps" ("user_id");--> statement-breakpoint
+CREATE INDEX "category_parent_id_index" ON "categories" ("parent_id");--> statement-breakpoint
+CREATE INDEX "category_status_index" ON "categories" ("status");--> statement-breakpoint
+CREATE INDEX "category_display_order_index" ON "categories" ("display_order");--> statement-breakpoint
 CREATE INDEX "brand_status_index" ON "brands" ("status");--> statement-breakpoint
 CREATE INDEX "brand_is_featured" ON "brands" ("is_featured");--> statement-breakpoint
 CREATE UNIQUE INDEX "category_attribute_unique_idx" ON "category_attributes" ("category_id","attribute_id");--> statement-breakpoint
@@ -277,7 +337,9 @@ CREATE INDEX "cart_session_token_idx" ON "carts" ("session_token");--> statement
 CREATE UNIQUE INDEX "cart_variant_unique_index" ON "cart_items" ("cart_id","variant_id");--> statement-breakpoint
 CREATE INDEX "order_item_order_idx" ON "order_items" ("order_id");--> statement-breakpoint
 CREATE INDEX "order_item_variant_idx" ON "order_items" ("variant_id");--> statement-breakpoint
+ALTER TABLE "otps" ADD CONSTRAINT "otps_user_id_users_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("user_id") ON DELETE CASCADE;--> statement-breakpoint
 ALTER TABLE "addresses" ADD CONSTRAINT "addresses_user_id_users_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("user_id") ON DELETE CASCADE;--> statement-breakpoint
+ALTER TABLE "categories" ADD CONSTRAINT "categories_parent_id_categories_category_id_fkey" FOREIGN KEY ("parent_id") REFERENCES "categories"("category_id") ON DELETE RESTRICT;--> statement-breakpoint
 ALTER TABLE "attribute_values" ADD CONSTRAINT "attribute_values_attribute_id_attributes_attribute_id_fkey" FOREIGN KEY ("attribute_id") REFERENCES "attributes"("attribute_id") ON DELETE CASCADE;--> statement-breakpoint
 ALTER TABLE "category_attributes" ADD CONSTRAINT "category_attributes_category_id_categories_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "categories"("category_id") ON DELETE CASCADE;--> statement-breakpoint
 ALTER TABLE "category_attributes" ADD CONSTRAINT "category_attributes_attribute_id_attributes_attribute_id_fkey" FOREIGN KEY ("attribute_id") REFERENCES "attributes"("attribute_id") ON DELETE CASCADE;--> statement-breakpoint

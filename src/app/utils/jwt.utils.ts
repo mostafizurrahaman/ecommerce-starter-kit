@@ -41,3 +41,9 @@ export const verifyToken = (
     }
   }
 };
+
+
+// 3. Is Jwt issued before password change: 
+const isJwtIssuedBeforePasswordChanged = (passwordChangedAt: Date, jwtIssuedAt: number) => { 
+  
+}

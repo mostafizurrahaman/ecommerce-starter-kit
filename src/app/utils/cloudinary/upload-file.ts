@@ -1,8 +1,4 @@
-import {
-  v2 as cloudinary,
-  type UploadApiOptions,
-  type UploadApiResponse,
-} from "cloudinary";
+import { v2 as cloudinary, type UploadApiResponse } from "cloudinary";
 import streamifier from "streamifier";
 
 import httpStatus from "http-status";
